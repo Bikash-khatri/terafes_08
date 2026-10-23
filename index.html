@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#a2231b">
+<title>Nepal Spice — Nepali Food Ordering</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23a2231b'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='Arial'%3E%E0%A4%AE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-logo" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#a2231b"/><circle cx="32" cy="32" r="23" fill="none" stroke="#ffd9a8" stroke-width="2" stroke-dasharray="3 5"/><path d="M32 16c6 6 9 10 9 15a9 9 0 0 1-18 0c0-5 3-9 9-15z" fill="#ffd9a8"/><path d="M20 44h24" stroke="#ffd9a8" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2 3h3l2.6 12.4A2 2 0 0 0 9.6 17H19a2 2 0 0 0 2-1.6L23 7H6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6.1 3.6 1.4-6.8L2.2 9.1l6.9-.8z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 21c4-6 8-9 12-11"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 13A8.5 8.5 0 1 1 11 3a7 7 0 0 0 10 10z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5.2 5.2L20 7"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M12 17.5 9 10h6l3 7.5M9 10 7.5 6H5M15 10l-1.5-4H17"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-eyeoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l18 18M10.6 5.1A10.9 10.9 0 0 1 12 5c6.4 0 10 7 10 7a17.6 17.6 0 0 1-3 3.9M6.6 6.6C4 8.4 2 12 2 12s3.6 7 10 7a10 10 0 0 0 4-.8"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4-4 5.5-4 10a4.5 4.5 0 0 0 9 0c0-2-1-3.5-2-4.5.2 2-.8 3-1.8 3 .8-2.6-.2-6.5-1.2-8.5z"/><path d="M12 22a6 6 0 0 1-6-6c0-1 .2-1.9.6-2.7A6.5 6.5 0 0 0 12 17a6.5 6.5 0 0 0 5.4-3.7c.4.8.6 1.7.6 2.7a6 6 0 0 1-6 6z" opacity=".55"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4 4.2-6 8-6s6.8 2 8 6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="logo" aria-hidden="true"><use href="#i-logo"/></svg>
+    <span>Nepal Spice<small class="tagline">Kathmandu kitchen · est. 2019</small></span>
+  </div>
+  <div class="spacer"></div>
+  <span class="pill-btn" title="Signed in" style="cursor:default"><svg><use href="#i-user"/></svg><span id="customerName"></span></span>
+  <select id="language" class="select" aria-label="Language" title="Language">
+    <option value="en">English</option><option value="ja">日本語</option><option value="ne">नेपाली</option>
+  </select>
+  <button class="pill-btn" id="themeToggle" title="Theme" aria-label="Toggle dark mode"><svg><use href="#i-moon" id="themeIcon"/></svg></button>
+  <button class="pill-btn" id="ordersBtn" title="Order history"><svg><use href="#i-receipt"/></svg><span class="label" data-i18n="orders">Orders</span></button>
+  <button class="pill-btn" id="logoutBtn" title="Logout"><svg><use href="#i-out"/></svg><span class="label" data-i18n="logout">Logout</span></button>
+  <button class="pill-btn solid" id="cartBtn" title="Cart"><svg><use href="#i-cart"/></svg><span class="label" data-i18n="cart">Your cart</span><span class="badge" id="cartCount">0</span></button>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="kicker"><svg width="14" height="14"><use href="#i-flame"/></svg> नमस्ते · Namaste · こんにちは</span>
+    <h1 data-i18n="heroTitle">Authentic Nepali taste, delivered warm.</h1>
+    <p class="sub" data-i18n="heroSub">Momo, dal bhat, sekuwa and more — handmade daily in our Kathmandu-style kitchen.</p>
+    <div class="hero-stats">
+      <span class="stat"><svg><use href="#i-bike"/></svg><span data-i18n="statDelivery">30–45 min delivery</span></span>
+      <span class="stat"><svg><use href="#i-star"/></svg><span data-i18n="statRating">4.7 ★ average rating</span></span>
+      <span class="stat"><svg><use href="#i-leaf"/></svg><span data-i18n="statFree">Free delivery over ¥2,500</span></span>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="toolbar-row">
+      <label class="search"><svg><use href="#i-search"/></svg><input id="search" type="search" data-i18n-ph="searchPh" placeholder="Search dishes…" aria-label="Search dishes"></label>
+      <select id="sortSel" class="select" aria-label="Sort">
+        <option value="popular" data-i18n="sortPopular">Most popular</option>
+        <option value="rating" data-i18n="sortRating">Top rated</option>
+        <option value="asc" data-i18n="sortPriceAsc">Price: low → high</option>
+        <option value="desc" data-i18n="sortPriceDesc">Price: high → low</option>
+      </select>
+      <button class="toggle" id="vegToggle" aria-pressed="false"><span class="dot"></span><svg width="15" height="15"><use href="#i-leaf"/></svg><span data-i18n="vegOnly">Vegetarian only</span></button>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Categories"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="section-head">
+    <h2 data-i18n="menuTitle">Our Menu</h2>
+    <span class="count" id="countLabel"></span>
+  </div>
+  <div id="menu" class="menu" aria-live="polite"></div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>School Project — Nepal Spice · demo only, no real orders or payments.</span>
+    <span id="welcomeFoot"></span>
+  </div>
+</footer>
+
+<!-- mobile cart bar -->
+<div class="mobilebar" id="mobilebar">
+  <div><b id="mbTotal">¥0</b><div class="sub" id="mbCount">0 items</div></div>
+  <button class="btn" id="mbOpen"><svg><use href="#i-cart"/></svg><span data-i18n="cart">Your cart</span></button>
+</div>
+
+<!-- cart drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+  <header>
+    <h2 id="drawerTitle" data-i18n="cart">Your cart</h2>
+    <button class="icon-btn" id="closeCart" aria-label="Close cart"><svg><use href="#i-x"/></svg></button>
+  </header>
+  <div class="lines" id="cartLines"></div>
+  <footer>
+    <div class="trow"><span data-i18n="subtotal">Subtotal</span><span id="subT">¥0</span></div>
+    <div class="trow"><span id="taxLabel">Consumption tax</span><span id="taxT">¥0</span></div>
+    <div class="trow"><span data-i18n="delivery">Delivery fee</span><span id="delT">¥0</span></div>
+    <div class="trow total"><span data-i18n="total">Total</span><span id="totT">¥0</span></div>
+    <div class="cta">
+      <button class="btn muted" id="clearCart"><svg><use href="#i-trash"/></svg><span data-i18n="clear">Clear cart</span></button>
+      <button class="btn" id="checkoutBtn"><span data-i18n="order">Place order</span></button>
+    </div>
+  </footer>
+</aside>
+
+<!-- details dialog -->
+<dialog id="details" aria-labelledby="dTitle">
+  <div class="dlg-scroll">
+    <div class="detail-hero">
+      <img id="dImage" alt="">
+      <div class="flags" id="dFlags"></div>
+      <button class="icon-btn" id="dCloseTop" aria-label="Close" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,.9);color:#222"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="dlg-body">
+      <h2 id="dTitle" style="margin:0 0 6px;font-size:24px"></h2>
+      <div class="meta" id="dMeta" style="display:flex;gap:10px;align-items:center;color:var(--ink-soft);font-size:13px;flex-wrap:wrap"></div>
+      <p id="dDesc" style="margin:12px 0 0;color:var(--ink-soft)"></p>
+      <div class="detail-grid" id="dKpi"></div>
+      <div class="facts" id="dFacts"></div>
+      <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+        <button class="btn" id="dAdd" style="flex:1"><svg><use href="#i-plus"/></svg><span data-i18n="add">Add</span></button>
+        <button class="btn ghost" id="dClose" style="flex:1"><span data-i18n="close">Close</span></button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- checkout dialog -->
+<dialog id="checkout" class="wide" aria-labelledby="cTitle">
+  <div class="dlg-scroll">
+    <div class="dlg-head">
+      <h2 id="cTitle" data-i18n="checkout">Checkout</h2>
+      <button class="icon-btn" id="cClose" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="dlg-body">
+      <div class="summary-box" id="checkoutSummary"></div>
+      <form id="checkoutForm" class="form-grid" novalidate>
+        <div class="two">
+          <label class="f"><span data-i18n="fullName">Full name</span><input id="deliveryName" required maxlength="100" autocomplete="name"></label>
+          <label class="f"><span data-i18n="phone">Phone number</span><input id="deliveryPhone" type="tel" required maxlength="25" autocomplete="tel" pattern="[0-9+() -]{9,25}" placeholder="090-1234-5678"></label>
+        </div>
+        <div class="two">
+          <label class="f"><span data-i18n="postal">Postal code</span><input id="postalCode" required maxlength="12" autocomplete="postal-code" placeholder="123-4567"></label>
+          <label class="f"><span data-i18n="taxMode">Tax mode</span>
+            <select id="taxMode"><option value="takeout" data-i18n="takeout">Takeout (8%)</option><option value="dinein" data-i18n="dinein">Dine-in (10%)</option></select>
+          </label>
+        </div>
+        <label class="f"><span data-i18n="address">Delivery address</span><textarea id="deliveryAddress" rows="2" required maxlength="300" autocomplete="street-address"></textarea></label>
+        <label class="f"><span data-i18n="notes">Delivery notes (optional)</span><textarea id="deliveryNote" rows="2" maxlength="200"></textarea></label>
+        <div>
+          <span class="f" style="display:block;margin-bottom:8px" data-i18n="payment">Payment method</span>
+          <div class="paycards">
+            <label class="paycard"><input type="radio" name="payment" value="cash" checked><span><b data-i18n="cash">Cash on delivery (demo)</b><span id="payCashNote"></span></span></label>
+            <label class="paycard"><input type="radio" name="payment" value="card"><span><b data-i18n="card">Card payment (simulation only)</b><span id="payCardNote"></span></span></label>
+          </div>
+        </div>
+        <p class="warning" data-i18n="demoWarning">Demo only. No real payment or delivery. Do not enter actual card information.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn" style="flex:1"><svg><use href="#i-check"/></svg><span data-i18n="confirm">Confirm order</span></button>
+          <button type="button" class="btn ghost" id="cCancel"><span data-i18n="cancel">Cancel</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<!-- receipt dialog -->
+<dialog id="receipt" aria-labelledby="rTitle">
+  <div class="dlg-scroll"><div class="dlg-body receipt" id="receiptBody"></div></div>
+</dialog>
+
+<!-- order history dialog -->
+<dialog id="orders" aria-labelledby="oTitle">
+  <div class="dlg-scroll">
+    <div class="dlg-head"><h2 id="oTitle" data-i18n="orderHistory">Order history</h2><button class="icon-btn" id="oClose" aria-label="Close"><svg><use href="#i-x"/></svg></button></div>
+    <div class="dlg-body" id="ordersBody"></div>
+  </div>
+</dialog>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
